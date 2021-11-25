@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}
+  Create Profile
+{% endblock title %}
+
+{% block content %}
+
+<h1>Hello "{{ request.user.username }}"</h1>
+  <form method="post">
+    {{ profile_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" value="Create" name="" id="">
+  </form>
+{% endblock content %}

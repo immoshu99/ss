@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Home
+{% endblock title %}
+
+
+
+{% block blood %}
+  <h1>Become a blood doner </h1>
+  
+{% endblock blood %}
+{% block content %}
+  <!--eikhane post er amra jate article charte pari bivinno oitar-->
+  <h1>Contact us form . </h1>
+  <form method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="" class="btn btn-danger" value="Save" id="">
+    
+  </form>
+  <h5>Our articles : </h5>
+  {% for a in article %}
+    <h1>{{ a.name }}</h1>
+    <p>{{ a.body|linebreaks }}</p>
+    <b><p>{{ a.time }}</p></b>
+    
+  {% endfor %}
+{% endblock content %}

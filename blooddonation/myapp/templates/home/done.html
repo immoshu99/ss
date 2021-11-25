@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Blood doner
+{% endblock title %}
+
+
+
+
+{% block content %}
+
+<a href="{% url 'myapp:register' %}">Register</a>
+
+<h1>Registration</h1>
+
+  <form method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="" class="btn btn-danger" value="Save" id="">
+    
+  </form>
+{% endblock content %}

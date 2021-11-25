@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+       <title>{% block title %}
+         
+       {% endblock title %}</title>
+       <link rel="stylesheet" href="blood_website/assets/css/lightbox.css">
+       <link rel="stylesheet" href="blood_website/assets/css/flex-slider.css">
+       <link rel="stylesheet" href="blood_website/assets/css/font-awesome.css">
+       <link rel="stylesheet" href="blood_website/assets/css/owl-carousel.css">
+       <link rel="stylesheet" href="blood_website/assets/css/templatemo-breezed.css">
+
+
+
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        
+
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="{% url "myapp:home" %}" class="button">logo</a>
+                    <a href="{% url "myapp:home" %}">Home</a>
+                    <a href="{% url "myapp:aboutus" %}">About us</a>
+                    <a href="{% url "myapp:for_doner" %}">For doner</a>
+                    <a href="{% url "myapp:privacy" %}">For receiver</a>
+                    <a href="{% url 'myapp:faq' %}">FAQ</a>
+                    <a href="{% url 'myapp:goals' %}">Goals</a>
+
+
+                    <a href="{% url 'myapp:register' %}">Register</a>
+
+                    
+                    
+                    <span class="user">
+                        {% if request.user.is_authenticated %}
+                        Hello "{{ request.user.username }}",
+                        <a href="{%url  'myapp:logout' %}">Logout</a>
+                        {% else %}
+                          <a href="{% url 'myapp:login' %}">Log-in</a>
+                        {% endif %}
+                    </span>
+                    <a href="{% url "myapp:find" %}">Find blood</a>
+                </li>
+            </ul>
+
+            {% if request.user.is_authenticated %}
+            <ul>
+                <li><a href="{% url 'myapp:dashboard' %}">Dashboard</a></li>
+            </ul>
+              
+            {% endif %}
+        </div>
+        {% block form %}
+          
+        {% endblock form %}
+        {% block secondary %}
+          
+        {% endblock secondary %}
+
+        {% block content %}
+          
+        {% endblock content %}
+    </body>
+</html>

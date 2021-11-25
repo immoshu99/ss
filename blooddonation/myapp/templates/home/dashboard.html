@@ -1,0 +1,27 @@
+{% extends "blood_website/index.html" %}
+{% block title %}
+  Dashboard
+{% endblock title %}
+
+
+{% block content %}
+  <h1>Welcome to dashboard</h1>
+
+  <div class="container">
+      <h4>Your profile <b>"{{ request.user.username }}"</b> </h4><br><br>
+      <p>Username : {{ request.user.username }}</p>
+      <p>E-mail : {{ request.user.email }}</p>
+      <p>Name : {{ request.user.profile.name }}</p>
+      <p>City : {{ request.user.profile.city }}</p>
+      <p>Thana : {{ request.user.profile.thana }}</p>
+      <p>Blood Group : {{ request.user.profile.blood }}</p>
+      <p>Phone : {{ request.user.profile.phone }}</p>
+
+      
+      <a href="{% url 'myapp:password_change' %}">Change Password</a>
+
+      <h1><a href="{% url 'myapp:request_change' %}">Request change in profile </a></h1>
+  
+  </div>
+  
+{% endblock content %}

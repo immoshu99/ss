@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Find blood
+{% endblock title %}
+
+{% block content %}
+  <h1> find blood </h1>
+
+
+
+  
+
+  <form >
+    {% csrf_token %}
+    {{ myfilter.form }}
+    <input type="submit" value="Search" name="" id="">
+  </form>
+  
+  
+
+    
+
+
+  {% for b in doner %}
+   
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="https://t3.ftcdn.net/jpg/02/45/28/14/360_F_245281469_8BxP6VT7st0gj6qNfLUVVq1UJt0NfFEd.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ b.name }}</h5>
+        <p class="card-text"><b></b><b>{{ b.blood }}</b> ||  {{ b.phone }} ||  {{ b.city}} ||  {{ b.thana }}</p> 
+        
+      </div>
+    </div>
+    <br> <br>
+  {% endfor %}
+{% endblock content %}
